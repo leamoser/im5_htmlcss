@@ -59,8 +59,15 @@
 
 .grid {
     display: grid;
-    /*repeat(auto-fit, minmax(250px, 1fr))*/
-    grid-template-columns: repeat(2, 1fr);
+    /* -> max 3 spalten, max-breite für ct und für box
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 1224px;
+        margin: 0 auto;
+    */
+    /* -> max-breite für box, immer auffüllen
+        repeat(auto-fit, minmax(300px, 1fr))
+    */
+    grid-template-columns: repeat(4, 1fr);
     padding: var(--ga-medium);
     gap: var(--ga-small);
     div {
@@ -109,6 +116,23 @@
         button {
             align-self: flex-start;
         }
+    }
+}
+
+.dialog {
+    max-width: unset;
+    max-height: unset;
+    width: calc(100% - 200px);
+    height: calc(100vh - 200px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    transition: top 300ms ease-in-out;
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
 
